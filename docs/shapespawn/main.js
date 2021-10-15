@@ -68,6 +68,9 @@ function update() {
     case 'b':
       color("black");
       break;
+    case 'c':
+      color("light_black");
+      break;
   }
   char(shape,charX,charY);
 
