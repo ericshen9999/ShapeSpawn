@@ -27,6 +27,7 @@ let shape;
 let charX;
 let charY;
 let action;
+let toggle;
 function update() {
   // Initialize
   if (!ticks) {
@@ -34,6 +35,7 @@ function update() {
     charX = 100;
     charY = 0;
     action = null;
+    toggle = true;
   }
 
   // Selection
@@ -88,6 +90,9 @@ function update() {
         case 'b':
           action = "moveLeft";
           break;
+        case 'c':
+          action = "wiggle";
+          break;
       }
     }
   } else {
@@ -99,6 +104,17 @@ function update() {
       case "moveLeft":
         charX -= 0.5;
         break;
+      case "wiggle":
+        if(charX > 60){
+          toggle = true;
+        } else if(charX < 40){
+          toggle = false;
+        }
+        if(toggle){
+          charX--;
+        } else {
+          charX ++;
+        }
     }
   }
 }
